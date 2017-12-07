@@ -20,11 +20,11 @@ public class GeneralOBJ extends GenericModel {
 
 	public String otherid;
 
-	@OneToMany(mappedBy = "obj1")
-	public List<Pair> pairs;
-
-	@OneToOne(mappedBy = "obj2")
-	public Pair pair;
+//	@OneToMany(mappedBy = "obj1")
+//	public List<Pair> pairs;
+//
+//	@OneToOne(mappedBy = "obj2")
+//	public Pair pair;
 
 	public GeneralOBJ(String type, String name, String id) {
 		super();
@@ -57,21 +57,21 @@ public class GeneralOBJ extends GenericModel {
 		this.id = id;
 	}
 
-	public List<Pair> getPairs() {
-		return pairs;
-	}
-
-	public void setPairs(List<Pair> pairs) {
-		this.pairs = pairs;
-	}
-
-	public Pair getPair() {
-		return pair;
-	}
-
-	public void setPair(Pair pair) {
-		this.pair = pair;
-	}
+//	public List<Pair> getPairs() {
+//		return pairs;
+//	}
+//
+//	public void setPairs(List<Pair> pairs) {
+//		this.pairs = pairs;
+//	}
+//
+//	public Pair getPair() {
+//		return pair;
+//	}
+//
+//	public void setPair(Pair pair) {
+//		this.pair = pair;
+//	}
 
 	public String getOtherid() {
 		return otherid;
