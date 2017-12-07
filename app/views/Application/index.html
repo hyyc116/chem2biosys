@@ -34,7 +34,13 @@
 				data.phrase = $("#example-ajax-post").val();
 				return data;
 			},
-
+			list: {
+				maxNumberOfElements: 10,
+				onClickEvent: function() {
+					var value = $("#example-ajax-post").getSelectedItemData().id
+					alert(value);
+				}	
+			},
 			requestDelay : 400
 		};
 
