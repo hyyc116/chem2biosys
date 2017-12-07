@@ -18,6 +18,8 @@ public class GeneralOBJ extends GenericModel {
 	@Id
 	public String id;
 
+	public String otherid;
+
 	@OneToMany(mappedBy = "obj1")
 	public List<Pair> pairs;
 
@@ -69,6 +71,14 @@ public class GeneralOBJ extends GenericModel {
 
 	public void setPair(Pair pair) {
 		this.pair = pair;
+	}
+
+	public String getOtherid() {
+		return otherid;
+	}
+
+	public void setOtherid(String otherid) {
+		this.otherid = otherid;
 	}
 
 }
