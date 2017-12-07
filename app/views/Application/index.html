@@ -1,0 +1,44 @@
+#{extends 'main.html' /} #{set title:'Home' /}
+
+<div class="topnav">
+	<a class="active">Chem2Bio2Rdf</a>
+</div>
+<input id='example-ajax-post' type="text"
+	placeholder="Compunds or Proteins .." name="search">
+<script>
+	$(document).ready(function() {
+		var options = {
+
+			url : function(phrase) {
+				return "searchprompt/" + phrase;
+			},
+
+			getValue : function(element) {
+				return element.name;
+			},
+
+			ajaxSettings : {
+				dataType : "json",
+				method : "POST",
+				data : {
+					dataType : "json"
+				}
+			},
+			template: {
+				type: "description",
+				fields: {
+					description: "type"
+				}
+			},
+			preparePostData : function(data) {
+				data.phrase = $("#example-ajax-post").val();
+				return data;
+			},
+
+			requestDelay : 400
+		};
+
+		$("#example-ajax-post").easyAutocomplete(options);
+
+	});
+</script>
