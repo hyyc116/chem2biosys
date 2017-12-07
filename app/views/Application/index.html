@@ -3,48 +3,62 @@
 <div class="topnav">
 	<a class="active">Chem2Bio2Rdf</a>
 </div>
-<input id='example-ajax-post' type="text"
-	placeholder="Compunds or Proteins .." name="search">
+<div id="search_div">
+	<input id='example-ajax-post' type="text"
+		placeholder="Compunds or Proteins .." name="search">
+</div>
+<div class="topnav">
+	<a class="active">Linked Compounds:</a>
+
+</div>
 <script>
-	$(document).ready(function() {
-		var options = {
+	$(document).ready(
+			function() {
+				var options = {
 
-			url : function(phrase) {
-				return "searchprompt/" + phrase;
-			},
+					url : function(phrase) {
+						return "searchprompt/" + phrase;
+					},
 
-			getValue : function(element) {
-				return element.name;
-			},
+					getValue : function(element) {
+						return element.name;
+					},
 
-			ajaxSettings : {
-				dataType : "json",
-				method : "POST",
-				data : {
-					dataType : "json"
-				}
-			},
-			template: {
-				type: "description",
-				fields: {
-					description: "type"
-				}
-			},
-			preparePostData : function(data) {
-				data.phrase = $("#example-ajax-post").val();
-				return data;
-			},
-			list: {
-				maxNumberOfElements: 10,
-				onClickEvent: function() {
-					var value = $("#example-ajax-post").getSelectedItemData().id
-					alert(value);
-				}	
-			},
-			requestDelay : 400
-		};
+					ajaxSettings : {
+						dataType : "json",
+						method : "POST",
+						data : {
+							dataType : "json"
+						}
+					},
+					template : {
+						type : "description",
+						fields : {
+							description : "type"
+						}
+					},
+					preparePostData : function(data) {
+						data.phrase = $("#example-ajax-post").val();
+						return data;
+					},
+					list : {
+						maxNumberOfElements : 10,
+						onClickEvent : function() {
+							var value = $("#example-ajax-post")
+									.getSelectedItemData().id
+							//alert(value);
+							$.post("/search", {
+								id : value
+							}, function(data, status) {
+								alert("Data: " + data + "\nStatus: " + status);
+							});
 
-		$("#example-ajax-post").easyAutocomplete(options);
+						}
+					},
+					requestDelay : 400
+				};
 
-	});
+				$("#example-ajax-post").easyAutocomplete(options);
+
+			});
 </script>

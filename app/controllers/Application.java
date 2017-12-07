@@ -20,10 +20,15 @@ public class Application extends Controller {
 	}
 
 	// define a ajax action for search result
-	public static void search(String phrase, String type) {
+	public static void search(String id) {
 		//return top 10 most similar compounds
-		
-		//return top 10 most similar proteins 
+		List<GeneralOBJ> objs = new ArrayList<GeneralOBJ>();
+		GeneralOBJ obj = GeneralOBJ.findById(id);
+		for(Pair pair:obj.getPairs()){
+			objs.add(pair.getObj2());
+		}
+		//return top 10 most similar proteins
+		renderJSON(objs);
 	}
 
 }
