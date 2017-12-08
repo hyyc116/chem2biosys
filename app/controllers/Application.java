@@ -28,7 +28,7 @@ public class Application extends Controller {
 		// objs.add(pair.getObj2());
 		// }
 		Set<String> alreadys = new HashSet<String>();
-		List<Pair> ps = Pair.find("obj1.id = ? adn score = 1", id).fetch();
+		List<Pair> ps = Pair.find("obj1.id = ? and score = 1", id).fetch();
 		for (Pair p : ps) {
 			if (!alreadys.contains(p.getObj2().getId())) {
 				objs.add(p.obj2);
