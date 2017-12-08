@@ -42,8 +42,20 @@ public class Application extends Controller {
 	public static void recomend(String id) {
 		List<Pair> pairs = new ArrayList<Pair>();
 		Set<String> alreadys = new HashSet<String>();
-		List<Pair> ps = Pair.find("obj1.id = ? and score <=1 and score > 0.85 order by score desc", id).fetch(100);
+		List<Pair> ps = Pair
+				.find("obj1.id = ? and score <=1 and score > 0.85 and obj2.type='Compound' order by score desc", id)
+				.fetch(20);
 		for (Pair p : ps) {
+			if (!alreadys.contains(p.getObj2().getId())) {
+				pairs.add(p);
+				alreadys.add(p.obj2.getId());
+			}
+		}
+
+		List<Pair> ps2 = Pair
+				.find("obj1.id = ? and score <=1 and score > 0.85 and obj2.type='Protein' order by score desc", id)
+				.fetch(20);
+		for (Pair p : ps2) {
 			if (!alreadys.contains(p.getObj2().getId())) {
 				pairs.add(p);
 				alreadys.add(p.obj2.getId());
