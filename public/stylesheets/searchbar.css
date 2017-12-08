@@ -56,4 +56,22 @@ body {
 	padding-bottom: 40px;
 }
 
+#rec_p{
+	text-align: center;
+	font-size:17px;
+	display: none;
+	border-left:none;
+	border-right:none;
+	padding-bottom: 40px;
+}
+
+#rec_c{
+	text-align: center;
+	font-size:17px;
+	display: none;
+	border-left:none;
+	border-right:none;
+	padding-bottom: 40px;
+}
+
 

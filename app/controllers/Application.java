@@ -39,4 +39,17 @@ public class Application extends Controller {
 		renderJSON(objs);
 	}
 
+	public static void recomend(String id) {
+		List<GeneralOBJ> objs = new ArrayList<GeneralOBJ>();
+		Set<String> alreadys = new HashSet<String>();
+		List<Pair> ps = Pair.find("obj1.id = ? and score <=1 and score > 0.85 order by score desc", id).fetch(100);
+		for (Pair p : ps) {
+			if (!alreadys.contains(p.getObj2().getId())) {
+				objs.add(p.obj2);
+				alreadys.add(p.obj2.getId());
+			}
+		}
+		renderJSON(objs);
+	}
+
 }

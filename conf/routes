@@ -17,3 +17,4 @@ GET     /public/                                staticDir:public
 GET		/index				Application.index
 POST	/searchprompt/{phrase}		Application.searchPrompt
 GET 	/search/{id}	Application.search
+GET 	/recomend/{id}	Application.recomend
