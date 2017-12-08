@@ -105,13 +105,13 @@
 							$.get("/recomend/"+value, function(data, status) {
 								$('.aline').remove();
 								data.forEach(function(o){
-									var t = o.type;
+									var t = o.obj2.type;
 									if(t=="Compound"){
-										var str="<tr class='aline'><td>"+o.name+"</td><td>linked</td></tr>";
+										var str="<tr class='aline'><td>"+o.obj2.name+"</td><td>"+o.score+"</td></tr>";
 										$("#rec_compound").append(str);
 										$("#rec_c").show();
 									}else if(t=="Protein"){
-										var str2="<tr class='aline'><td>"+o.name+"</td><td>linked</td></tr>";
+										var str2="<tr class='aline'><td>"+o.obj2.name+"</td><td>"+o.score+"</td></tr>";
 										$("#rec_protein").append(str2);
 										$("#rec_p").show()
 									}
