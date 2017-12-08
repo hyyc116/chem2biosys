@@ -29,7 +29,7 @@
 </div>
 
 <div id="rec_c">
-	<h4>Similar Compounds:</h4>
+	<h4>Similar Compounds (calculated by Node2Vec):</h4>
 	<table id="rec_compound" align="center" border="1" width='500'>
 		 <tr>
     		<th>Name</th>
@@ -103,15 +103,15 @@
 							});
 							
 							$.get("/recomend/"+value, function(data, status) {
-								$('.line').remove();
+								$('.aline').remove();
 								data.forEach(function(o){
 									var t = o.type;
 									if(t=="Compound"){
-										var str="<tr class='line'><td>"+o.name+"</td><td>linked</td></tr>";
+										var str="<tr class='aline'><td>"+o.name+"</td><td>linked</td></tr>";
 										$("#rec_compound").append(str);
 										$("#rec_c").show();
 									}else if(t=="Protein"){
-										var str2="<tr class='line'><td>"+o.name+"</td><td>linked</td></tr>";
+										var str2="<tr class='aline'><td>"+o.name+"</td><td>linked</td></tr>";
 										$("#rec_protein").append(str2);
 										$("#rec_p").show()
 									}
