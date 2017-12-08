@@ -30,9 +30,11 @@ body {
   background-color: #2196F3;
   color: white;
 }
+#search_div{
+	margin:60px;
+}
 
 #search_div input[type=text]{
-  margin: 60px;
   font-size: 17px;
 }
 
