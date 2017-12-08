@@ -42,12 +42,18 @@ body {
 	text-align: center;
 	font-size:17px;
 	display: none;
+	border-left:none;
+	border-right:none;
+	padding-bottom: 40px;
 }
 
 #linked_p{
 	text-align: center;
 	font-size:17px;
 	display: none;
+	border-left:none;
+	border-right:none;
+	padding-bottom: 40px;
 }
 
 
