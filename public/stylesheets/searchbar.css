@@ -38,12 +38,16 @@ body {
   font-size: 17px;
 }
 
-#linked_div{
+#linked_c{
 	text-align: center;
 	font-size:17px;
+	display: none;
 }
 
-#compound_div{
-	
+#linked_p{
+	text-align: center;
+	font-size:17px;
+	display: none;
 }
+
 

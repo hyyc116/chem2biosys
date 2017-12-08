@@ -7,7 +7,7 @@
 	<input id='example-ajax-post' type="text"
 		placeholder="Compunds or Proteins .." name="search">
 </div>
-<div class="topnav" id="linked_div">
+<div class="topnav" id="linked_c">
 	<h4>Linked Compounds:</h4>
 	<table id="compound_div" align="center" border="1" width='500'>
 		 <tr>
@@ -16,7 +16,8 @@
   		</tr>
   		
 	</table>
-
+</div>
+<div class="topnav" id="linked_p">
 	<h4>Linked Proteins:</h4>
 	<table id="protein_div" align="center" border="1" width='500'>
 		 <tr>
@@ -67,10 +68,12 @@
 									var t = o.type;
 									if(t=="Compound"){
 										var str="<tr><td>"+o.name+"</td><td>linked</td></tr>";
-										$("#compound_div").append(str)
+										$("#compound_div").append(str);
+										$("#linked_c").show();
 									}else if(t=="Protein"){
 										var str2="<tr><td>"+o.name+"</td><td>linked</td></tr>";
-										$("#protein_div").append(str2)
+										$("#protein_div").append(str2);
+										$("#linked_p").show()
 									}
 								});
 							});
