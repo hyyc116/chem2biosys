@@ -8,13 +8,25 @@
 		placeholder="Compunds or Proteins .." name="search">
 </div>
 <div class="topnav">
-	<h2>Linked Compounds:</h2>
-	<div id="compound_div"></div>
+	<h4>Linked Compounds:</h4>
+	<table id="compound_div">
+		 <tr>
+    		<th>Name</th>
+    		<th>Score</th>
+  		</tr>
+  		
+	</table>
 </div>
 
-<div class="topnav">
-	<h2>Linked Proteins:</h2>
-	<div id="protein_div"></div>
+<div>
+	<h4>Linked Proteins:</h4>
+	<table id="protein_div">
+		 <tr>
+    		<th>Name</th>
+    		<th>Score</th>
+  		</tr>
+  		
+	</table>
 </div>
 <script>
 	$(document).ready(
@@ -53,7 +65,16 @@
 									.getSelectedItemData().id
 							//alert(value);
 							$.get("/search/"+value, function(data, status) {
-								alert(JSON.stringify(data));
+								data.forEach(function(o){
+									var t = o.type;
+									if(t=="Compound"){
+										var str="<tr><td>"+o.name+"</td><td>linked</td></tr>";
+										$("#compound_div").append(str)
+									}else if(t=="Protein"){
+										var str2="<tr><td>"+o.name+"</td><td>linked</td></tr>";
+										$("#protein_div").append(str2)
+									}
+								});
 							});
 
 						}
