@@ -64,14 +64,15 @@
 									.getSelectedItemData().id
 							//alert(value);
 							$.get("/search/"+value, function(data, status) {
+								$('.line').remove();
 								data.forEach(function(o){
 									var t = o.type;
 									if(t=="Compound"){
-										var str="<tr><td>"+o.name+"</td><td>linked</td></tr>";
+										var str="<tr class='line'><td>"+o.name+"</td><td>linked</td></tr>";
 										$("#compound_div").append(str);
 										$("#linked_c").show();
 									}else if(t=="Protein"){
-										var str2="<tr><td>"+o.name+"</td><td>linked</td></tr>";
+										var str2="<tr class='line'><td>"+o.name+"</td><td>linked</td></tr>";
 										$("#protein_div").append(str2);
 										$("#linked_p").show()
 									}
