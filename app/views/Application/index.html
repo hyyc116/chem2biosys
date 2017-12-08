@@ -47,9 +47,7 @@
 							var value = $("#example-ajax-post")
 									.getSelectedItemData().id
 							//alert(value);
-							$.post("/search", {
-								id : value
-							}, function(data, status) {
+							$.get("/search/"+value, function(data, status) {
 								alert("Data: " + data + "\nStatus: " + status);
 							});
 
